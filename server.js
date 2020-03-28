@@ -16,8 +16,6 @@ app.use(
 );
 app.use(methodOverride("_method"));
 
-const gradesController = require("./controllers/grades")
-
 // MONGOOSE
 mongoose.connection.on("error", err =>
 	console.log(err.message + " is Mongod not running?")
@@ -51,8 +49,9 @@ const whitelist = [
 // JSON
 app.use(express.json())
 
+const assignmentsController = require("./controllers/assignments.js")
 // MOUNT ROUTE
-app.use("/grades", gradesController)
+app.use("/assignments", assignmentsController)
 
 //initial routes for authorization
 app.get("/app", (req, res) => {
@@ -69,6 +68,7 @@ app.get("/", (req, res) => {
   });
 });
 
+//CONTROLLER ROUTES
 const usersController = require("./controllers/users.js");
 app.use("/users", usersController);
 
