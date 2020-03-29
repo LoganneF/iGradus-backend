@@ -69,6 +69,9 @@ app.get("/", (req, res) => {
 });
 
 //CONTROLLER ROUTES
+const studentsController = require('./controllers/students.js')
+app.use('/students', studentsController)
+
 const usersController = require("./controllers/users.js");
 app.use("/users", usersController);
 
