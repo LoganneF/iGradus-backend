@@ -3,8 +3,18 @@ const app = express()
 const mongoose = require("mongoose")
 const cors = require('cors')
 const PORT = 3000
+const session = require("express-session");
+const methodOverride = require("method-override");
 
-const gradesController = require("./controllers/grades")
+app.use(express.urlencoded({ extended: false }));
+app.use(
+  session({
+    secret: "feedmeseymour", 
+    resave: false,
+    saveUninitialized: false
+  })
+);
+app.use(methodOverride("_method"));
 
 // MONGOOSE
 mongoose.connection.on("error", err =>
@@ -39,8 +49,34 @@ const whitelist = [
 // JSON
 app.use(express.json())
 
+const assignmentsController = require("./controllers/assignments.js")
 // MOUNT ROUTE
-app.use("/grades", gradesController)
+app.use("/assignments", assignmentsController)
+
+//initial routes for authorization
+app.get("/app", (req, res) => {
+  if (req.session.currentUser) {
+    res.send("the party");
+  } else {
+    res.redirect("/sessions/new");
+  }
+});
+//initial routes for authorization
+app.get("/", (req, res) => {
+  res.render("index.ejs", {
+    currentUser: req.session.currentUser
+  });
+});
+
+//CONTROLLER ROUTES
+const studentsController = require('./controllers/students.js')
+app.use('/students', studentsController)
+
+const usersController = require("./controllers/users.js");
+app.use("/users", usersController);
+
+const sessionsController = require("./controllers/sessions.js");
+app.use("/sessions", sessionsController);
 
 // PORT LISTENER
 app.listen(PORT, () => {
