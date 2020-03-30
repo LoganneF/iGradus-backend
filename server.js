@@ -31,7 +31,7 @@ mongoose.connection.once("open", () => {
 
 // CORS middleware:
 // const whitelist = [
-//     "http://localhost:3000",
+//     "http://localhost:3003",
 //     "https://fathomless-sierra-68956.herokuapp.com"
 //   ];
 //   const corsOptions = {
@@ -45,6 +45,8 @@ mongoose.connection.once("open", () => {
 //   };
   
 //   app.use(cors(corsOptions));
+
+// app.use(cors())
 
 // JSON
 app.use(express.json())
