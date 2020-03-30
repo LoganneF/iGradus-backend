@@ -45,9 +45,9 @@ mongoose.connection.once("open", () => {
 //       }
 //     }
 //   };
-//   app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
-app.use(cors())
+// app.use(cors())
 
 // JSON
 app.use(express.json())
