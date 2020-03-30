@@ -21,7 +21,7 @@ mongoose.connection.on("error", err =>
 	console.log(err.message + " is Mongod not running?")
 )
 mongoose.connection.on("disconnected", () => console.log("mongo disconnected"))
-mongoose.connect("", {
+mongoose.connect("mongodb://localhost:27017/auth", {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
 })
@@ -30,21 +30,21 @@ mongoose.connection.once("open", () => {
 })
 
 // CORS middleware:
-const whitelist = [
-    "http://localhost:3000",
-    "https://fathomless-sierra-68956.herokuapp.com"
-  ];
-  const corsOptions = {
-    origin: function(origin, callback) {
-      if (whitelist.indexOf(origin) !== -1) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    }
-  };
+// const whitelist = [
+//     "http://localhost:3000",
+//     "https://fathomless-sierra-68956.herokuapp.com"
+//   ];
+//   const corsOptions = {
+//     origin: function(origin, callback) {
+//       if (whitelist.indexOf(origin) !== -1) {
+//         callback(null, true);
+//       } else {
+//         callback(new Error("Not allowed by CORS"));
+//       }
+//     }
+//   };
   
-  app.use(cors(corsOptions));
+//   app.use(cors(corsOptions));
 
 // JSON
 app.use(express.json())
@@ -61,6 +61,7 @@ app.get("/app", (req, res) => {
     res.redirect("/sessions/new");
   }
 });
+
 //initial routes for authorization
 app.get("/", (req, res) => {
   res.render("index.ejs", {
