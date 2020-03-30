@@ -22,12 +22,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chrissouth89/iGradus-backend.git"
+    "url": "git+https://github.com/LoganneF/iGradus-backend.git"
   },
   "author": "Chris",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/chrissouth89/iGradus-backend/issues"
+    "url": "https://github.com/LoganneF/iGradus-backend/issues"
   },
-  "homepage": "https://github.com/chrissouth89/iGradus-backend#readme"
+  "homepage": "https://github.com/LoganneF/iGradus-backend#readme"
 }
