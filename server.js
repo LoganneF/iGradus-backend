@@ -1,7 +1,7 @@
 const express = require("express")
 const app = express()
 const mongoose = require("mongoose")
-// const cors = require("cors")
+const cors = require("cors")
 const PORT = 3003
 const session = require("express-session")
 const methodOverride = require("method-override")
@@ -33,9 +33,9 @@ mongoose.connection.once("open", () => {
 })
 
 // CORS middleware:
-// const whitelist = [
-//     "http://localhost:3003",
-//   ];
+const whitelist = [
+    "http://localhost:3003",
+];
 //   const corsOptions = {
 //     origin: function(origin, callback) {
 //       if (whitelist.indexOf(origin) !== -1) {
@@ -47,7 +47,7 @@ mongoose.connection.once("open", () => {
 //   };
 // app.use(cors(corsOptions));
 
-// app.use(cors())
+app.use(cors())
 
 // JSON
 app.use(express.json())
