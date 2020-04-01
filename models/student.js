@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const studentSchema = mongoose.Schema({
   name: {type: String, required: true},
-  studentImage: {type: String, default: "https://cdn.clipart.email/38ee7d3fbd4d64f0a95f3dc280ccecb0_gender-partitioned-babe_396-355.png"},
+  imageUrl: {type: String, default: "https://lh5.ggpht.com/_S0f-AWxKVdM/S5TpU6kRmUI/AAAAAAAAL4Y/wrjx3_23kw4/s72-c/d_silhouette%5B2%5D.jpg?imgmax=800"},
   passing: {type: Boolean, default: true}
 })
 

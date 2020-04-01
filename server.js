@@ -33,9 +33,9 @@ mongoose.connection.once("open", () => {
 })
 
 // CORS middleware:
-const whitelist = [
-    "http://localhost:3003",
-];
+// const whitelist = [
+//     "http://localhost:3003",
+// ];
 //   const corsOptions = {
 //     origin: function(origin, callback) {
 //       if (whitelist.indexOf(origin) !== -1) {
