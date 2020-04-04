@@ -1,9 +1,29 @@
-# iGradus-backend
+# iGradus
 
-iGradus is a dashboard for educators to organize students and assignments in one convenient application.
+### Heroku Hosted App Link:
+https://igradus.herokuapp.com/
 
-Problem: Educators need an organized space to keep track of students, assignments and grades.
+## Technologies Used
+HTML, CSS, JavaScript, jQuery
+(MERN stack) Mongoose, Express, React, Node.js
 
-General App Idea: An application that allows the user to organize students, assignments and grades.
+### Problem: 
+A teacher needs to keep track of their students and assignments.
 
-Who Would Use It: Teachers
+### General App Idea/Purpose: 
+An app that allows teachers to have an organized space for viewing students and assignments.
+
+### Who Would Use It: 
+Teachers/Educators
+
+## Approach taken:
+
+## Installation Instructions
+
+
+### Trello:
+https://trello.com/invite/b/jUeguKvD/2993df73a0625fa0e0dd968af8e60a0a/igradus
+
+### Wireframe:
+
+
