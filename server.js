@@ -35,22 +35,23 @@ mongoose.connection.on("error", err =>
 mongoose.connection.on("disconnected", () => console.log("mongo disconnected"))
 
 
-// CORS middleware:
-// const whitelist = [
-//     "http://localhost:3003",
-// ];
-//   const corsOptions = {
-//     origin: function(origin, callback) {
-//       if (whitelist.indexOf(origin) !== -1) {
-//         callback(null, true);
-//       } else {
-//         callback(new Error("Not allowed by CORS"));
-//       }
-//     }
-//   };
-// app.use(cors(corsOptions));
+//CORS middleware:
+const whitelist = [
+	"http://localhost:3003",
+	"https://igradus-react.herokuapp.com"
+];
+  const corsOptions = {
+    origin: function(origin, callback) {
+      if (whitelist.indexOf(origin) !== -1) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    }
+  };
+app.use(cors(corsOptions));
 
-app.use(cors())
+//app.use(cors())
 
 // JSON
 app.use(express.json())
