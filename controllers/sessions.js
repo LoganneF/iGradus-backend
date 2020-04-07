@@ -9,11 +9,13 @@ router.get("/new", (req, res) => {
 });
 
 router.post("/", (req, res) => {
+  console.log("received login request")
   User.findOne({ username: req.body.username }, (err, foundUser) => {
-    if (bcrypt.compareSync(req.body.password, foundUser.password)) {
+    if (foundUser && bcrypt.compareSync(req.body.password, foundUser.password)) {
       req.session.currentUser = foundUser;
+      res.status(200).send(req.session.currentUser)
     } else {
-      res.send("wrong password");
+      res.status(404).send("invalid login")
     }
   });
 });
