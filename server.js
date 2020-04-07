@@ -5,7 +5,7 @@ const cors = require("cors")
 //const PORT = 3003
 const session = require("express-session")
 const methodOverride = require("method-override")
-const PORT = process.env.PORT 
+const PORT = process.env.PORT || 3003
 
 app.use(express.urlencoded({ extended: false }))
 
